@@ -300,7 +300,7 @@ class Command(BaseCommand):
         extensions = self.handle_extensions(options.get("extensions") or ["html"])
         engines = [e.strip() for e in options.get("engines", [])] or ["django"]
 
-        final_offline_manifest = {}
+        final_offline_manifest = OrderedDict()
         final_block_count = 0
         final_results = []
         for engine in engines:
