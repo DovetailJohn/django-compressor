@@ -307,7 +307,7 @@ class Command(BaseCommand):
             offline_manifest, block_count, results = self.compress(engine, extensions, verbosity, follow_links, log)
             final_results.extend(results)
             final_block_count += block_count
-            final_offline_manifest.update(offline_manifest)
+            write_offline_manifest(OrderedDict(sorted(final_offline_manifest.items())))
         write_offline_manifest(final_offline_manifest)
         return final_block_count, final_results
 
